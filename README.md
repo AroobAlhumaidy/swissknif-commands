@@ -39,9 +39,9 @@ grep -Fwf deflines.txt big.sequences.fasta > matched_sequences.fasta
 ```
 
 ------------------------------------
-# replace charecters like / on sequence defline: 
+# replace charecters like / on sequence defline or any file: 
 ```
-sed -i '/^>/ s/\//_/g'
+sed -i '/^>/ s/\//_/g' sequences.fasta
 
 ```
 ------------------------------------
