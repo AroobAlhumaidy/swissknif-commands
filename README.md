@@ -44,6 +44,14 @@ grep -Fwf deflines.txt big.sequences.fasta > matched_sequences.fasta
 sed -i '/^>/ s/\//_/g'
 
 ```
+------------------------------------
+# Manipulating fasta file: 
+## convert a multi-line FASTA file to a single-line FASTA file 
+```
+awk '/^>/ {printf("%s%s\t",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}' sequences.fasta > sequences_singleline.fasta
+```
+
+
 
 # References: 
 - https://www.ncbi.nlm.nih.gov/books/NBK179288/
