@@ -46,10 +46,6 @@ sed -i '/^>/ s/\//_/g' sequences.fasta
 ```
 ------------------------------------
 # Manipulating fasta file: 
-## convert a multi-line FASTA file to a single-line FASTA file 
-```
-awk '/^>/ {printf("%s%s\t",(N>0?"\n":""),$0);N++;next;} {printf("%s",$0);} END {printf("\n");}' sequences.fasta > sequences_singleline.fasta
-```
 
 
 
