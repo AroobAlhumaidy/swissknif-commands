@@ -38,6 +38,12 @@ from the big fasta file i want to only choose the ones in this list only.old.txt
 grep -Fwf deflines.txt big.sequences.fasta > matched_sequences.fasta
 ```
 
+------------------------------------
+# replace charecters like / on sequence defline: 
+```
+sed -i '/^>/ s/\//_/g'
+
+```
 
 # References: 
 - https://www.ncbi.nlm.nih.gov/books/NBK179288/
