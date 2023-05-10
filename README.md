@@ -28,7 +28,15 @@ for chunk in $(split -d -l 10 new.ref.txt ref_chunk_); do ls ; done
 for chunk in ref_chunk_*; do esearch -db nucleotide -query "$(cat $chunk)" | efetch -format fasta >> sequences.ncbi.fasta ; done
 ```
 
-
+-----------------------------------
+# Extract group of sequences from a larg.fasta file: 
+## case: 
+from the big fasta file i want to only choose the ones in this list only.old.txt and extract the sequences in new file
+1. create a txt file with the sequences deflines 
+2. run the command: 
+```
+grep -Fwf deflines.txt big.sequences.fasta > matched_sequences.fasta
+```
 
 
 # References: 
