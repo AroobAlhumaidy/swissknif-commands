@@ -34,10 +34,22 @@ for chunk in ref_chunk_*; do esearch -db nucleotide -query "$(cat $chunk)" | efe
 from the big fasta file i want to only choose the ones in this list only.old.txt and extract the sequences in new file
 1. create a txt file with the sequences deflines 
 2. run the command: 
+    - replace ```deflines.txt``` with your acession list
+    - replace ```big.sequences.fasta``` with the name of your big fasta file 
+### Option1:
 ```
-grep -Fwf deflines.txt big.sequences.fasta > matched_sequences.fasta
+grep -Fwf deflines.txt big.sequences.fasta > tt.txt 
+awk -v RS=">" -v FS="\n" -v ORS="" 'NR==FNR{a[$1]=$0;}NR>FNR{print ">"a[$1]}' big.sequences.fasta tt.txt |sed 's/>>/>/' > matched.sequences.fasta 
 ```
 
+### Option2: 
+```
+awk '
+  BEGIN { FS = "\n"; RS = ">" }   # set record separator to ">" and field separator to newline
+  NR == FNR { defline[$1] = $0; next }   # read deflines into array
+  $1 in defline { printf ">%s\n%s\n", $0, $2 }   # output matching sequence
+' deflines.txt big.sequences.fasta > matched.sequences.fasta
+```
 ------------------------------------
 # replace charecters like / on sequence defline or any file: 
 ```
