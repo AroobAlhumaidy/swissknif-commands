@@ -58,3 +58,6 @@ sed -i '/^>/ s/\//_/g' sequences.fasta
 
 ------------------------------------
 # Blast unknown sequences: 
+1. follow the steps here to install BLAST+ commandline tools: 
+https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html#downloadblastdata
+2. 
