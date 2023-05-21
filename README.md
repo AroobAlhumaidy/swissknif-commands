@@ -55,3 +55,6 @@ sed -i '/^>/ s/\//_/g' sequences.fasta
 
 # References: 
 - https://www.ncbi.nlm.nih.gov/books/NBK179288/
+
+------------------------------------
+# Blast unknown sequences: 
