@@ -60,10 +60,25 @@ sed -i '/^>/ s/\//_/g' sequences.fasta
 # Blast unknown sequences: 
 1. follow the steps here to install BLAST+ commandline tools: 
 https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html#downloadblastdata
-2. 
 
--------------------------------------
+------------------------------------
 # Rename files:
 ```
 rename 's/oldName/newName/' *.fasta
+```
+------------------------------------
+# Simple Loop
+```sh
+samples=(
+  V00000_40
+  V00000_39
+)
+
+for sample in "${samples[@]}"; do
+  echo "Processing sample: $sample"
+  start_time=$SECONDS
+  <Write commands here>
+  echo "Elapsed time: $elapsed_time seconds"
+  echo "Sample $sample processed"
+done
 ```
