@@ -82,3 +82,8 @@ for sample in "${samples[@]}"; do
   echo "Sample $sample processed"
 done
 ```
+------------------------------------
+# Render jupyter notebook:
+```sh
+jupyter nbconvert --to html --TemplateExporter.exclude_input=True report.ipynb 
+```
