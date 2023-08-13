@@ -87,3 +87,63 @@ done
 ```sh
 jupyter nbconvert --to html --TemplateExporter.exclude_input=True report.ipynb 
 ```
+------------------------------------
+# Text replacement in large dataset:
+### Step 1: Create the `mapping.csv` File 
+
+First, create a CSV file that contains 2 columns (original,replacement). You can create this file using a text editor or a spreadsheet application like Excel. 
+Here's an example of what the `mapping.csv` file might look like:
+```csv
+original,replacement
+value1,value2
+value4,value5,
+```
+### Step 2: create the following Python Script
+Save the Python script provided as a file, such as `replace_text.py`
+- This Python script read the FASTA (or any dataset) file, and for each line, check if it contains any of the original text. If so, replace it with the corresponding replacement text
+```python
+import csv
+import sys
+
+def main(fasta_file_path, csv_file_path):
+    # Read the original and replacement mappings from the CSV file
+    mappings = {}
+    with open(csv_file_path, 'r') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            original = row['original']
+            replacement = row['replacement']
+            mappings[original] = replacement
+
+    # Read the FASTA file and replace the text as per the mapping
+    with open(fasta_file_path, 'r') as file:
+        lines = file.readlines()
+
+    with open(fasta_file_path, 'w') as file:
+        for line in lines:
+            for original, replacement in mappings.items():
+                line = line.replace(original, replacement)
+            file.write(line)
+
+    print("Replacement done successfully!")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: python script.py <path/to/fasta/file> <path/to/csv/file>")
+        sys.exit(1)
+
+    fasta_file_path = sys.argv[1]
+    csv_file_path = sys.argv[2]
+
+    main(fasta_file_path, csv_file_path)
+```
+
+### Step 3: Run the Script from the Command Line
+Open a terminal or command prompt, navigate to the directory where you saved the script and your FASTA file, and run the following command:
+```bash
+python replace_text.py /Path/dataset.fasta /Path/mapping.csv
+```
+Make sure to replace `/Path/dataset.fasta` with the path to your actual FASTA file, and `/Path/mapping.csv` with the path to your actual CSV file if they are in different directories.
+
+### Notes
+This script will read the FASTA file and replace all occurrences of the original text with the corresponding replacement text. The changes will be made directly in the original FASTA file. Make sure to have a backup copy of the original file in case you need to revert the changes.
