@@ -101,6 +101,7 @@ value4,value5,
 ### Step 2: create the following Python Script
 Save the Python script provided as a file, such as `replace_text.py`
 - This Python script read the FASTA (or any dataset) file, and for each line, check if it contains any of the original text. If so, replace it with the corresponding replacement text
+- You can find the script ready to use in this repositoy [replace_text.py](https://github.com/AroobAlhumaidy/swissknif-commands/blob/bdf68a0290d2bcc337beec243e4d851083ed4988/scripts/replace_text.py) 
 ```python
 import csv
 import sys
