@@ -148,3 +148,16 @@ Make sure to replace `/Path/dataset.fasta` with the path to your actual FASTA fi
 
 ### Notes
 This script will read the FASTA file and replace all occurrences of the original text with the corresponding replacement text. The changes will be made directly in the original FASTA file. Make sure to have a backup copy of the original file in case you need to revert the changes.
+
+------------------------------------
+# Linux helperes: 
+```sh
+free -h 
+
+
+
+```
+
+
+
+
