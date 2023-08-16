@@ -154,9 +154,34 @@ This script will read the FASTA file and replace all occurrences of the original
 ```sh
 free -h 
 
-
-
 ```
+------------------------------------
+# Copy cunk of files at once
+## Objective:
+The script is designed to automate the process of finding and copying specific files, making it a handy tool for managing large datasets or performing routine file operations.
+## Script location is here ()
+### What the Script Does
+1. **Argument Checking**: The script checks that exactly two arguments are provided, representing the source and destination paths for the file copying operation.
+2. **File List Reading**: It looks for a file called `list.txt` in the current directory, which should contain the names of the files to be copied.
+3. **File Copying**:
+   - For each file name in `list.txt`, it searches for that file in the specified source path.
+   - If the file is found, it's copied to the specified destination path.
+   - If the file is not found, the name is added to a list of not found files.
+4. **Summary Reporting**: After processing all file names, the script prints a summary:
+   - If there were any files not found, their names are printed.
+   - If all files were found and copied, a success message is printed.  
+### Usage
+1. **Prepare `list.txt`**: Create a file named `list.txt` in the same directory as the script, containing the names of the files you want to copy (one per line).
+2. **Make the Script Executable**: Use the command `chmod +x copy.files.chunk.sh` to make the script executable.
+3. **Run the Script**: Run the script with the source and destination paths as arguments:
+```sh
+bash copy.files.chunk.sh /path/to/source /path/to/destination
+```
+4. **Review the Output**: The script prints messages as it copies files, and at the end, it provides a summary of the operation, including any file names that were not found.
+### Requirements
+- Ensure that `list.txt` is in the correct format and located in the same directory as the script.
+- The source and destination paths must exist, and you must have the proper permissions to read from the source path and write to the destination path.
+- Make sure that the paths you provide as arguments match the structure and naming conventions in your system.
 
 
 
