@@ -2,10 +2,10 @@
 # By: Aroob Alhumaidy
 
 # Check if the right number of arguments is provided
-if [ $# -ne 2 ]; then
-  echo "Usage: $0 <source_path> <destination_path>"
-  exit 1
-fi
+#if [ $# -ne 2 ]; then
+#  echo "Usage: $0 <source_path> <destination_path>"
+#  exit 1
+#fi
 
 # Assign the source and destination paths from command-line arguments
 SOURCE_PATH="$1"
