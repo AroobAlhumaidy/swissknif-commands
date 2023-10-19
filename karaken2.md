@@ -38,7 +38,7 @@ docker run --rm -v $(pwd):/data -w /data/ nanozoo/krakentools:1.2--13d5ba5 extra
 -o {sampleID}.v.extracted.fq.gz \
 -t <TaxaID> --include-parents --include-children --fastq-output
 elapsed_time=$(($SECONDS - $start_time))
-echo "{sampleID}. Karaken Extract: $elapsed_time seconds" >> $SLURM_JOB_ID.{sampleID}.benchmark.txt
+echo "{sampleID}. Karaken Extract: $elapsed_time seconds" >> {sampleID}.benchmark.txt
 ```
 - <TaxaID>  = the taxa id of the organism of interest 
 
