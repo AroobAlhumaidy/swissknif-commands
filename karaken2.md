@@ -16,8 +16,6 @@ echo "{sampleID}. gzip the validated raw data: $elapsed_time seconds" >> {sample
 
 # Karaken2
 ```sh
-cd <working directory>
-
 start_time=$SECONDS
 docker run --rm -v $(pwd):/home/data -v PATH/Kraken_Database:/home/data/database -w /home/data staphb/kraken2:latest kraken2 --threads 300 --gzip-compressed --db /home/data/database --report {sampleID}.K2_report --use-names --output {sampleID}.K2_output {sampleID}.v.fq.gz
 elapsed_time=$(($SECONDS - $start_time))
